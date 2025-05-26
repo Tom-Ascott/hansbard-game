@@ -7,49 +7,98 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- 
+    =================================
+    HEADER SECTION
+    Contains the game title and subtitle
+    ================================= 
+    -->
     <header>
       <h1>HansBard</h1>
       <p>Daily Parliamentary Word Game</p>
     </header>
 
+    <!-- 
+    =================================
+    MAIN GAME CONTENT
+    Contains all the interactive game elements
+    ================================= 
+    -->
     <main>
-      <!-- Progress Tracker - shows round results -->
+      <!-- 
+      PROGRESS TRACKER
+      Shows 5 round boxes to track game progress
+      - Only ONE box should have "current" class at a time
+      - When game starts, Round 1 should be current (highlighted)
+      - As rounds complete, boxes change to show correct/incorrect
+      -->
       <div class="progress-tracker">
-        <div class="round-box">1</div>
+        <!-- FIXED: Round 1 should start as "current" instead of Round 3 -->
+        <div class="round-box current">1</div>
+        <!-- This was the problem! -->
         <div class="round-box">2</div>
-        <div class="round-box current">3</div>
+        <div class="round-box">3</div>
+        <!-- "current" was here before -->
         <div class="round-box">4</div>
         <div class="round-box">5</div>
       </div>
 
-      <!-- Game Area - main word comparison -->
+      <!-- 
+      GAME AREA
+      Contains the word comparison and choice buttons
+      This section gets updated by JavaScript as rounds progress
+      -->
       <div class="game-area">
-        <!-- Word Display Chain -->
+        <!-- 
+        WORD DISPLAY CHAIN
+        Shows the two words being compared
+        - Left card: "known" word with its count visible
+        - Right card: "unknown" word with hidden count (???)
+        -->
         <div class="word-chain">
+          <!-- Known word card (count is always visible) -->
           <div class="word-card">
             <div class="word-text">Suit</div>
+            <!-- Word itself -->
             <div class="word-count">23,606 mentions</div>
+            <!-- Parliament count -->
           </div>
+
+          <!-- Visual arrow showing comparison direction -->
           <div class="arrow">→</div>
+
+          <!-- Unknown word card (count hidden until guess made) -->
           <div class="word-card unknown">
             <div class="word-text">Trump</div>
+            <!-- Word itself -->
             <div class="word-count">??? mentions</div>
+            <!-- Hidden count -->
           </div>
         </div>
 
-        <!-- Question -->
+        <!-- 
+        QUESTION TEXT
+        Asks player to compare the unknown word to the known word
+        This text gets updated by JavaScript for each round
+        -->
         <div class="question">
           Is "Trump" mentioned more or less than "Suit" in UK Parliament?
         </div>
 
-        <!-- Choice Buttons -->
+        <!-- 
+        CHOICE BUTTONS
+        Two buttons for player's guess: Higher or Lower
+        JavaScript listens for clicks on these buttons
+        -->
         <div class="choice-buttons">
           <button class="choice-btn">Higher</button>
           <button class="choice-btn">Lower</button>
         </div>
       </div>
+      <!-- End of game-area -->
     </main>
 
+    <!-- Load the JavaScript that makes the game interactive -->
     <script src="script.js"></script>
   </body>
 </html>

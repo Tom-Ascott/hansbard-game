@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
         higherBtn.disabled = false;
         lowerBtn.disabled = false;
       }
-    }, 2500);
+    }, 500);
   }
 
   /* =================================
@@ -168,9 +168,25 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function showGameComplete() {
-    alert(
-      `Game Complete!\n\nScore: ${score}/5\n\nTheme: "${cabinetReshuffleTheme.title}"\n${cabinetReshuffleTheme.explanation}`
-    );
+    // Replace the entire game area with a completion screen
+    const gameArea = document.querySelector(".game-area");
+    gameArea.innerHTML = `
+      <div style="text-align: center; padding: 2rem;">
+        <h2 style="color: var(--commons-green); margin-bottom: 1rem; font-size: 2rem;">Game Complete!</h2>
+        <div style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-black);">
+          Score: ${score}/5
+        </div>
+        <div style="background: var(--stone-white); border: 1px solid var(--border-grey); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
+          <div style="font-size: 1.4rem; font-weight: bold; color: var(--commons-green); margin-bottom: 0.5rem;">
+            Theme: "${cabinetReshuffleTheme.title}"
+          </div>
+          <div style="color: var(--text-black); font-style: italic;">
+            ${cabinetReshuffleTheme.explanation}
+          </div>
+        </div>
+        <p style="color: var(--text-black); opacity: 0.8;">Come back tomorrow for a new theme!</p>
+      </div>
+    `;
   }
 
   /* =================================

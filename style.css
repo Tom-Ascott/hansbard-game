@@ -25,6 +25,8 @@
   --oak-brown: #8b4513; /* Oak panelling inspiration */
   --text-black: #1a1a1a; /* High contrast black for text */
   --border-grey: #d3d3d3; /* Light grey for subtle borders */
+  --success-green: #228b22; /* For correct answers */
+--error-red: #b22222; /* For incorrect answers */
 
   /* Typography weights */
   --font-light: 300;
@@ -169,13 +171,29 @@ main {
     transition: all 0.3s ease;
 }
 
-/* Current round highlighting */
+/* Current round highlighting - FIXED: now shows as outline, not filled */
 .round-box.current {
     border-color: var(--commons-green);
-    background: var(--commons-green);
-    color: var(--stone-white);
+    border-width: 3px;                    /* Thicker border */
+    background: var(--stone-white);       /* Keep background light */
+    color: var(--commons-green);          /* Green text */
+    box-shadow: 0 0 10px rgba(53, 94, 59, 0.3);  /* Subtle glow */
+}
+/* ADDED: Correct answer styling - green background */
+.round-box.correct {
+    background: var(--success-green);
+    border-color: var(--success-green);
+    color: white;
+    box-shadow: 0 0 8px rgba(34, 139, 34, 0.4);
 }
 
+/* ADDED: Incorrect answer styling - red background */
+.round-box.incorrect {
+    background: var(--error-red);
+    border-color: var(--error-red);
+    color: white;
+    box-shadow: 0 0 8px rgba(178, 34, 34, 0.4);
+}
 /* Game area container */
 .game-area {
     background: white;
