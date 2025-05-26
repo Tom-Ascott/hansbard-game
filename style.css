@@ -1,0 +1,144 @@
+/* =================================
+   HANSBARD - HOUSE OF COMMONS INSPIRED STYLING
+   Authentic parliamentary design language
+   ================================= */
+
+/* Import serif fonts - using free, globally available options */
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap");
+
+/* =================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   Based on House of Commons color palette
+   ================================= */
+:root {
+  /* Primary Commons Colors */
+  --commons-green: #355e3b; /* Deep forest green - primary institutional color */
+  --commons-green-light: #4a7c59; /* Lighter green for hover states */
+  --commons-green-dark: #2c4e32; /* Darker green for emphasis */
+
+  /* Accent Colors */
+  --parliamentary-gold: #d4af37; /* Gold accents for ornamental details */
+  --brass: #b5a642; /* Brass tone for secondary accents */
+
+  /* Neutral Parliamentary Tones */
+  --stone-white: #f8f6f0; /* Aged stone color for background */
+  --oak-brown: #8b4513; /* Oak panelling inspiration */
+  --text-black: #1a1a1a; /* High contrast black for text */
+  --border-grey: #d3d3d3; /* Light grey for subtle borders */
+
+  /* Typography weights */
+  --font-light: 300;
+  --font-regular: 400;
+  --font-semibold: 600;
+  --font-bold: 700;
+}
+
+/* =================================
+   RESET & BASE STYLES
+   Clean foundation for parliamentary styling
+   ================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Primary serif font for institutional gravitas */
+  font-family: "Crimson Text", "Times New Roman", Times, serif;
+  background: var(--stone-white);
+  color: var(--text-black);
+  line-height: 1.6;
+  font-weight: var(--font-regular);
+}
+
+/* =================================
+   HEADER - PARLIAMENTARY TITLE AREA
+   Formal, centered layout with Commons green accent
+   ================================= */
+header {
+  text-align: center;
+  padding: 2.5rem 1rem 2rem;
+  /* Green bottom border echoing Commons chamber design */
+  border-bottom: 3px solid var(--commons-green);
+  margin-bottom: 2rem;
+  background: linear-gradient(to bottom, var(--stone-white) 0%, #f0ede3 100%);
+}
+
+/* Main title - authoritative serif styling */
+h1 {
+  font-family: "Crimson Text", "Times New Roman", Times, serif;
+  font-size: 3rem;
+  font-weight: var(--font-bold);
+  color: var(--commons-green);
+  margin-bottom: 0.5rem;
+  /* Subtle text shadow for institutional weight */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+}
+
+/* Subtitle - formal descriptor */
+header p {
+  font-size: 1.2rem;
+  color: var(--text-black);
+  opacity: 0.8;
+  font-weight: var(--font-regular);
+  font-style: italic;
+}
+
+/* =================================
+   MAIN CONTENT AREA
+   Centered, readable layout for game content
+   ================================= */
+main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+/* =================================
+   RESPONSIVE DESIGN
+   Ensure readability on all devices
+   ================================= */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  header {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  header p {
+    font-size: 1.1rem;
+  }
+}
+
+/* =================================
+   UTILITY CLASSES
+   Reusable styling components for future game elements
+   ================================= */
+
+/* Commons green button style (for future use) */
+.btn-commons {
+  background: var(--commons-green);
+  color: var(--stone-white);
+  border: 2px solid var(--commons-green);
+  padding: 0.75rem 1.5rem;
+  font-family: inherit;
+  font-weight: var(--font-semibold);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-commons:hover {
+  background: var(--commons-green-light);
+  border-color: var(--commons-green-light);
+}
+
+/* Gold accent text (for theme reveals, etc.) */
+.text-gold {
+  color: var(--parliamentary-gold);
+}
