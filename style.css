@@ -142,3 +142,96 @@ main {
 .text-gold {
   color: var(--parliamentary-gold);
 }
+/* =================================
+   GAME LAYOUT STYLES
+   Professional parliamentary game interface
+   ================================= */
+
+/* Progress Tracker - horizontal layout */
+.progress-tracker {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Individual round boxes */
+.round-box {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--border-grey);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-semibold);
+    background: var(--stone-white);
+    transition: all 0.3s ease;
+}
+
+/* Current round highlighting */
+.round-box.current {
+    border-color: var(--commons-green);
+    background: var(--commons-green);
+    color: var(--stone-white);
+}
+
+/* Game area container */
+.game-area {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--border-grey);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Word chain - side by side layout */
+.word-chain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Individual word cards */
+.word-card {
+    background: var(--stone-white);
+    border: 2px solid var(--commons-green);
+    border-radius: 8px;
+    padding: 1.5rem;
+    min-width: 150px;
+    text-align: center;
+}
+
+/* Unknown word card styling */
+.word-card.unknown {
+    border-color: var(--border-grey);
+    background: #f0f0f0;
+}
+
+/* Word text styling */
+.word-text {
+    font-size: 1.5rem;
+    font-weight: var(--font-bold);
+    margin-bottom: 0.5rem;
+    color: var(--commons-green);
+}
+
+.word-count {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Arrow between words */
+.arrow {
+    font-size: 2rem;
+    color: var(--commons-green);
+    font-weight: bold;
+}
+
+/* Question text */
+.question {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-weight: var(--font-semibo
