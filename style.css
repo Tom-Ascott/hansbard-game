@@ -227,25 +227,6 @@ main {
   border-radius: 0;
 }
 
-.word-card.unknown {
-  border-color: #dfdfdf #808080 #808080 #dfdfdf;
-  background: #dfdfdf;
-}
-
-.word-text {
-  font-size: 16px;
-  font-weight: bold;
-  color: #000;
-  font-family: "MS Sans Serif", sans-serif;
-  margin-bottom: 4px;
-}
-
-.word-count {
-  font-size: 11px;
-  color: #000;
-  font-family: "MS Sans Serif", sans-serif;
-}
-
 /* Unknown word card styling */
 .word-card.unknown {
   border-color: var(--border-grey);

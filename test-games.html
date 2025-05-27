@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Game Manager Test</title>
+  </head>
+  <body>
+    <h1>Testing Game Manager</h1>
+    <button onclick="testGameManager()">Load Today's Game</button>
+    <button onclick="testSpecificDate()">Test May 28th</button>
+    <button onclick="testLoadGame2()">Actually Load Game #2</button>
+    <div id="results"></div>
+
+    <script src="game-manager.js"></script>
+    <script>
+      async function testGameManager() {
+        const results = document.getElementById("results");
+        results.innerHTML = "<h2>Debugging...</h2>";
+
+        try {
+          // Step 1: Check what date the system thinks it is
+          const today = GameManager.getTodayDate();
+          results.innerHTML += `<p><strong>Today's date:</strong> ${today}</p>`;
+
+          // Step 2: Check what game it found for today
+          const gameInfo = GameManager.getGameForDate(today);
+          results.innerHTML += `<p><strong>Game selected:</strong> ${gameInfo.file} (${gameInfo.gameVar})</p>`;
+
+          // Step 3: Try to load the game
+          const game = await GameManager.loadTodaysGame();
+          results.innerHTML += `<h2>✅ Success! Loaded: ${game.title}</h2>`;
+          results.innerHTML += `<p>Date: ${game.date}</p>`;
+          results.innerHTML += `<p>Game #${game.gameNumber}</p>`;
+        } catch (error) {
+          results.innerHTML += `<h2>❌ Error: ${error.message}</h2>`;
+          console.error("Full error:", error);
+        }
+      }
+
+      async function testSpecificDate() {
+        const results = document.getElementById("results");
+        try {
+          const gameInfo = GameManager.getGameForDate("2025-05-28");
+          results.innerHTML = `<p><strong>Game for May 28:</strong> ${gameInfo.file}</p>`;
+        } catch (error) {
+          results.innerHTML = `<p><strong>Error:</strong> ${error.message}</p>`;
+        }
+      }
+      async function testLoadGame2() {
+        const results = document.getElementById("results");
+        results.innerHTML = "<h2>Testing Game #2 Loading...</h2>";
+
+        try {
+          // Manually try to load game-002.js
+          const script = document.createElement("script");
+          script.src = "games/game-002.js";
+
+          script.onload = () => {
+            if (window.GAME_002) {
+              results.innerHTML += `<h2>✅ Game #2 Success!</h2>`;
+              results.innerHTML += `<p><strong>Title:</strong> ${window.GAME_002.title}</p>`;
+              results.innerHTML += `<p><strong>Date:</strong> ${window.GAME_002.date}</p>`;
+              results.innerHTML += `<p><strong>Theme:</strong> ${window.GAME_002.explanation}</p>`;
+            } else {
+              results.innerHTML += `<h2>❌ GAME_002 variable not found!</h2>`;
+            }
+          };
+
+          script.onerror = () => {
+            results.innerHTML += `<h2>❌ Failed to load game-002.js file!</h2>`;
+          };
+
+          document.head.appendChild(script);
+        } catch (error) {
+          results.innerHTML += `<h2>❌ Error: ${error.message}</h2>`;
+        }
+      }
+    </script>
+  </body>
+</html>

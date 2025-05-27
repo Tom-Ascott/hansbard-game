@@ -2,7 +2,7 @@
 // Date: 2025-05-26
 // Theme: Government reshuffles meet card games!
 
-const GAME_001 = {
+window.GAME_001 = {
   gameNumber: 1,
   date: "2025-05-26",
   title: "Cabinet Reshuffle",
