@@ -269,6 +269,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       "</div>" +
       '<button id="share-results" class="choice-btn" style="margin-bottom: 1rem;">Share Results</button>' +
       '<button class="choice-btn" style="margin-bottom: 1rem; margin-left: 1rem;" onclick="window.open(\'https://www.buymeacoffee.com/TomAscott\', \'_blank\')">🏛️ Buy me a coffee</button>' +
+      '<button id="feedback-button" class="choice-btn" style="margin-top: 1rem;">📝 Send Feedback</button>' +
       '<p style="color: var(--text-black); opacity: 0.8;">Come back tomorrow for a new theme!</p>' +
       "</div>";
 
@@ -278,6 +279,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     document
       .getElementById("share-results")
       .addEventListener("click", shareResults);
+
+    // Add feedback functionality
+    document
+      .getElementById("feedback-button")
+      .addEventListener("click", function () {
+        window.location = "mailto:test@example.com";
+      });
   }
 
   /* =================================
