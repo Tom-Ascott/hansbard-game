@@ -301,15 +301,15 @@ main {
 
   /* Typography - chunky 90s feel */
   font-family: "MS Sans Serif", sans-serif;
-  font-size: 14px;
+  font-size: 16px; /* Bigger text */
   font-weight: bold;
   color: #000;
   text-align: center;
 
-  /* Dimensions - boxy institutional */
-  padding: 8px 24px;
-  min-width: 100px;
-  height: 32px;
+  /* Dimensions - MUCH bigger for prominence */
+  padding: 15px 35px; /* Much bigger padding */
+  min-width: 140px; /* Much wider */
+  height: 45px; /* Much taller */
 
   /* No modern touches */
   border-radius: 0;
