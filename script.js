@@ -51,6 +51,15 @@ let gameComplete = false;
 document.addEventListener("DOMContentLoaded", function () {
   console.log("HansBard game loaded successfully");
 
+  // Set today's date dynamically
+  const today = new Date();
+  const dateString = today.toLocaleDateString("en-GB", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  document.getElementById("current-date").textContent = dateString;
+
   // Get button elements
   const higherBtn = document.querySelector(".choice-btn:nth-child(1)");
   const lowerBtn = document.querySelector(".choice-btn:nth-child(2)");
