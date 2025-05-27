@@ -240,24 +240,32 @@ document.addEventListener("DOMContentLoaded", function () {
   function showGameComplete() {
     // Replace the entire game area with a completion screen
     const gameArea = document.querySelector(".game-area");
-    gameArea.innerHTML = `
-      <div style="text-align: center; padding: 2rem;">
-        <h2 style="color: var(--commons-green); margin-bottom: 1rem; font-size: 2rem;">Game Complete!</h2>
-        <div style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-black);">
-          Score: ${score}/5
-        </div>
-        <div style="background: var(--stone-white); border: 1px solid var(--border-grey); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">
-          <div style="font-size: 1.4rem; font-weight: bold; color: var(--commons-green); margin-bottom: 0.5rem;">
-            Theme: "${cabinetReshuffleTheme.title}"
-          </div>
-          <div style="color: var(--text-black); font-style: italic;">
-            ${cabinetReshuffleTheme.explanation}
-          </div>
-        </div>
-        <button id="share-results" class="choice-btn" style="margin-bottom: 1rem;">Share Results</button>
-        <p style="color: var(--text-black); opacity: 0.8;">Come back tomorrow for a new theme!</p>
-      </div>
-    `;
+
+    // Create the HTML step by step to avoid syntax issues
+    const completionHTML =
+      '<div style="text-align: center; padding: 2rem;">' +
+      '<h2 style="color: var(--commons-green); margin-bottom: 1rem; font-size: 2rem;">Game Complete!</h2>' +
+      '<div style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-black);">' +
+      "Score: " +
+      score +
+      "/5" +
+      "</div>" +
+      '<div style="background: var(--stone-white); border: 1px solid var(--border-grey); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">' +
+      '<div style="font-size: 1.4rem; font-weight: bold; color: var(--commons-green); margin-bottom: 0.5rem;">' +
+      'Theme: "' +
+      cabinetReshuffleTheme.title +
+      '"' +
+      "</div>" +
+      '<div style="color: var(--text-black); font-style: italic;">' +
+      cabinetReshuffleTheme.explanation +
+      "</div>" +
+      "</div>" +
+      '<button id="share-results" class="choice-btn" style="margin-bottom: 1rem;">Share Results</button>' +
+      '<button class="choice-btn" style="margin-bottom: 1rem; margin-left: 1rem;" onclick="window.open(\'https://www.buymeacoffee.com/TomAscott\', \'_blank\')">🏛️ Buy me a coffee</button>' +
+      '<p style="color: var(--text-black); opacity: 0.8;">Come back tomorrow for a new theme!</p>' +
+      "</div>";
+
+    gameArea.innerHTML = completionHTML;
 
     // Add share functionality
     document
