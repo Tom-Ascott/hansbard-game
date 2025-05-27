@@ -351,3 +351,16 @@ main {
   border-radius: 8px;
   box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.1);
 }
+.help-btn {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #dfdfdf #808080 #808080 #dfdfdf;
+  font-family: "MS Sans Serif", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  width: 24px;
+  height: 24px;
+  border-radius: 0;
+  cursor: pointer;
+  margin-left: 10px;
+}
