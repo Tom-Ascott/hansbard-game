@@ -287,7 +287,7 @@ document.addEventListener("DOMContentLoaded", function () {
 ${emojiPattern}
 
 Daily Parliamentary Word Game
-hansbard.game`;
+hansbard.com`;
 
     // Copy to clipboard
     navigator.clipboard
