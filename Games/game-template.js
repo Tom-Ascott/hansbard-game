@@ -2,7 +2,7 @@
 // Date: YYYY-MM-DD
 // Theme: [Brief description of the double meaning]
 
-const GAME_XXX = {
+window.GAME_XXX = {
   gameNumber: XXX,
   date: "YYYY-MM-DD",
   title: "[Theme Title]",
@@ -10,28 +10,28 @@ const GAME_XXX = {
   // Strategic progression: [Describe the pattern, e.g., Lower, Higher, Higher, Lower, Higher]
   rounds: [
     {
-      known: { word: "[Word1]", count: 00000 },
-      unknown: { word: "[Word2]", count: 00000 },
+      known: { word: "[Word1]", count: 0 },
+      unknown: { word: "[Word2]", count: 0 },
       answer: "lower", // or "higher"
     },
     {
-      known: { word: "[Word2]", count: 00000 },
-      unknown: { word: "[Word3]", count: 00000 },
+      known: { word: "[Word2]", count: 0 },
+      unknown: { word: "[Word3]", count: 0 },
       answer: "higher", // or "lower"
     },
     {
-      known: { word: "[Word3]", count: 00000 },
-      unknown: { word: "[Word4]", count: 00000 },
+      known: { word: "[Word3]", count: 0 },
+      unknown: { word: "[Word4]", count: 0 },
       answer: "higher", // or "lower"
     },
     {
-      known: { word: "[Word4]", count: 00000 },
-      unknown: { word: "[Word5]", count: 00000 },
+      known: { word: "[Word4]", count: 0 },
+      unknown: { word: "[Word5]", count: 0 },
       answer: "lower", // or "higher"
     },
     {
-      known: { word: "[Word5]", count: 00000 },
-      unknown: { word: "[Word6]", count: 00000 },
+      known: { word: "[Word5]", count: 0 },
+      unknown: { word: "[Word6]", count: 0 },
       answer: "higher", // or "lower"
     },
   ],

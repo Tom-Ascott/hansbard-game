@@ -4,43 +4,11 @@
    ================================= */
 
 /* =================================
-   GAME DATA - CABINET RESHUFFLE THEME
-   Strategic word order for exciting gameplay
+   GAME DATA - LOADED DYNAMICALLY
+   Game data loaded from daily game files
    ================================= */
 
-const cabinetReshuffleTheme = {
-  title: "Cabinet Reshuffle",
-  explanation:
-    "Today's theme connects government cabinet reshuffles with card games! Each word works for both political reorganization and dealing cards.",
-  // Strategic progression: Lower, Higher, Higher, Lower, Higher
-  rounds: [
-    {
-      known: { word: "Suit", count: 23606 },
-      unknown: { word: "Trump", count: 4428 },
-      answer: "lower",
-    },
-    {
-      known: { word: "Trump", count: 4428 },
-      unknown: { word: "Play", count: 143363 },
-      answer: "higher",
-    },
-    {
-      known: { word: "Play", count: 143363 },
-      unknown: { word: "Deal", count: 742672 },
-      answer: "higher",
-    },
-    {
-      known: { word: "Deal", count: 742672 },
-      unknown: { word: "Cut", count: 161421 },
-      answer: "lower",
-    },
-    {
-      known: { word: "Cut", count: 161421 },
-      unknown: { word: "Hand", count: 237551 },
-      answer: "higher",
-    },
-  ],
-};
+let currentGameTheme = null; // Will be loaded dynamically
 
 // Game state tracking
 let currentRound = 0;
@@ -49,17 +17,56 @@ let gameComplete = false;
 let resultsPattern = []; // Track correct/incorrect pattern for sharing
 
 // Wait for page to load before adding event listeners
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   console.log("HansBard game loaded successfully");
 
-  // Set today's date dynamically
-  const today = new Date();
-  const dateString = today.toLocaleDateString("en-GB", {
+  // Load today's game dynamically
+  try {
+    console.log("Loading today's game...");
+    currentGameTheme = await GameManager.loadTodaysGame();
+    console.log("Game loaded:", currentGameTheme.title);
+
+    // Initialize the first round display
+    initializeGameDisplay();
+  } catch (error) {
+    console.error("Failed to load game:", error);
+    alert("Failed to load today's game. Please refresh the page.");
+    return;
+  }
+
+  // Initialize the first round display
+  function initializeGameDisplay() {
+    // Set up the first round
+    const firstRound = currentGameTheme.rounds[0];
+
+    // Update the initial word display
+    document.querySelector(".word-card:first-child .word-text").textContent =
+      firstRound.known.word;
+    document.querySelector(".word-card:first-child .word-count").textContent =
+      formatCount(firstRound.known.count) + " mentions";
+    document.querySelector(".word-card.unknown .word-text").textContent =
+      firstRound.unknown.word;
+    document.querySelector(".word-card.unknown .word-count").textContent =
+      "??? mentions";
+
+    // Update the question
+    document.querySelector(
+      ".question"
+    ).textContent = `Is "${firstRound.unknown.word}" mentioned more or less than "${firstRound.known.word}" in UK Parliament?`;
+  }
+
+  // Set game date dynamically from loaded game
+  const gameDate = new Date(currentGameTheme.date + "T00:00:00");
+  const dateString = gameDate.toLocaleDateString("en-GB", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
   document.getElementById("current-date").textContent = dateString;
+
+  // Set dynamic game number
+  document.getElementById("game-number").textContent =
+    currentGameTheme.gameNumber;
 
   /* =================================
      MODAL FUNCTIONALITY
@@ -143,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
        ================================= */
   function handleGuess(choice) {
     // Get current round data
-    const currentRoundData = cabinetReshuffleTheme.rounds[currentRound];
+    const currentRoundData = currentGameTheme.rounds[currentRound];
     const correctAnswer = currentRoundData.answer;
     const isCorrect = choice === correctAnswer;
 
@@ -166,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
       currentRound++;
 
-      if (currentRound >= cabinetReshuffleTheme.rounds.length) {
+      if (currentRound >= currentGameTheme.rounds.length) {
         // Game complete!
         showGameComplete();
       } else {
@@ -182,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
        DISPLAY UPDATE FUNCTIONS
        ================================= */
   function updateGameDisplay() {
-    const roundData = cabinetReshuffleTheme.rounds[currentRound];
+    const roundData = currentGameTheme.rounds[currentRound];
 
     // Update word cards
     document.querySelector(".word-card:first-child .word-text").textContent =
@@ -253,11 +260,11 @@ document.addEventListener("DOMContentLoaded", function () {
       '<div style="background: var(--stone-white); border: 1px solid var(--border-grey); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">' +
       '<div style="font-size: 1.4rem; font-weight: bold; color: var(--commons-green); margin-bottom: 0.5rem;">' +
       'Theme: "' +
-      cabinetReshuffleTheme.title +
+      currentGameTheme.title +
       '"' +
       "</div>" +
       '<div style="color: var(--text-black); font-style: italic;">' +
-      cabinetReshuffleTheme.explanation +
+      currentGameTheme.explanation +
       "</div>" +
       "</div>" +
       '<button id="share-results" class="choice-btn" style="margin-bottom: 1rem;">Share Results</button>' +

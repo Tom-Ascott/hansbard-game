@@ -3,8 +3,9 @@
 
 // List of all available games with their dates
 const GAME_SCHEDULE = [
-  { date: "2025-05-27", file: "game-001.js", gameVar: "GAME_001" },
+  { date: "2025-05-26", file: "game-001.js", gameVar: "GAME_001" },
   { date: "2025-05-28", file: "game-002.js", gameVar: "GAME_002" },
+
   // Add more games here as you create them
   // { date: "2025-05-28", file: "game-003.js", gameVar: "GAME_003" },
 ];
