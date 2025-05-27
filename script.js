@@ -112,6 +112,32 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* =================================
+     FIRST VISIT AUTO-SHOW
+     Show modal automatically for new visitors
+     ================================= */
+
+  // Check if this is the user's first visit
+  function checkFirstVisit() {
+    const hasVisitedBefore = localStorage.getItem("hansbard-visited");
+
+    if (!hasVisitedBefore) {
+      console.log("First visit detected - showing help modal");
+      // Small delay so the page loads completely first
+      setTimeout(function () {
+        modal.classList.add("show");
+      }, 1000);
+
+      // Mark that they've visited now
+      localStorage.setItem("hansbard-visited", "true");
+    } else {
+      console.log("Returning visitor - not showing modal automatically");
+    }
+  }
+
+  // Check for first visit when page loads
+  checkFirstVisit();
+
+  /* =================================
        COMPLETE GAME LOGIC
        ================================= */
   function handleGuess(choice) {
