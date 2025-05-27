@@ -46,6 +46,7 @@ const cabinetReshuffleTheme = {
 let currentRound = 0;
 let score = 0;
 let gameComplete = false;
+let resultsPattern = []; // Track correct/incorrect pattern for sharing
 
 // Wait for page to load before adding event listeners
 document.addEventListener("DOMContentLoaded", function () {
@@ -91,26 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Get button elements
-  const higherBtn = document.querySelector(".choice-btn:nth-child(1)");
-  const lowerBtn = document.querySelector(".choice-btn:nth-child(2)");
-
-  /* =================================
-       BUTTON CLICK HANDLERS
-       ================================= */
-
-  // Higher button click handler
-  higherBtn.addEventListener("click", function () {
-    console.log("Higher button clicked");
-    handleGuess("higher");
-  });
-
-  // Lower button click handler
-  lowerBtn.addEventListener("click", function () {
-    console.log("Lower button clicked");
-    handleGuess("lower");
-  });
-
   /* =================================
      FIRST VISIT AUTO-SHOW
      Show modal automatically for new visitors
@@ -136,6 +117,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Check for first visit when page loads
   checkFirstVisit();
+
+  // Get button elements
+  const higherBtn = document.querySelector(".choice-btn:nth-child(1)");
+  const lowerBtn = document.querySelector(".choice-btn:nth-child(2)");
+
+  /* =================================
+       BUTTON CLICK HANDLERS
+       ================================= */
+
+  // Higher button click handler
+  higherBtn.addEventListener("click", function () {
+    console.log("Higher button clicked");
+    handleGuess("higher");
+  });
+
+  // Lower button click handler
+  lowerBtn.addEventListener("click", function () {
+    console.log("Lower button clicked");
+    handleGuess("lower");
+  });
 
   /* =================================
        COMPLETE GAME LOGIC
@@ -219,6 +220,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Update current round box
     currentBox.classList.remove("current");
+    // Track result for sharing
+    resultsPattern.push(wasCorrect);
+
     if (wasCorrect) {
       currentBox.classList.add("correct");
       currentBox.textContent = "✓";
@@ -250,9 +254,64 @@ document.addEventListener("DOMContentLoaded", function () {
             ${cabinetReshuffleTheme.explanation}
           </div>
         </div>
+        <button id="share-results" class="choice-btn" style="margin-bottom: 1rem;">Share Results</button>
         <p style="color: var(--text-black); opacity: 0.8;">Come back tomorrow for a new theme!</p>
       </div>
     `;
+
+    // Add share functionality
+    document
+      .getElementById("share-results")
+      .addEventListener("click", shareResults);
+  }
+
+  /* =================================
+     SHARE RESULTS FUNCTIONALITY
+     Create and copy shareable results text
+     ================================= */
+
+  function shareResults() {
+    // Create the share text
+    const today = new Date();
+    const dateStr = today.toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "short",
+    });
+
+    // Convert results pattern to emojis
+    const emojiPattern = resultsPattern
+      .map((isCorrect) => (isCorrect ? "✅" : "❌"))
+      .join("");
+
+    const shareText = `HansBard #1 ${score}/5 🏛️
+${emojiPattern}
+
+Daily Parliamentary Word Game
+hansbard.game`;
+
+    // Copy to clipboard
+    navigator.clipboard
+      .writeText(shareText)
+      .then(() => {
+        // Show success feedback
+        const shareButton = document.getElementById("share-results");
+        const originalText = shareButton.textContent;
+        shareButton.textContent = "Copied!";
+        shareButton.disabled = true;
+
+        // Reset button after 2 seconds
+        setTimeout(() => {
+          shareButton.textContent = originalText;
+          shareButton.disabled = false;
+        }, 2000);
+
+        console.log("Results copied to clipboard:", shareText);
+      })
+      .catch((err) => {
+        console.error("Failed to copy to clipboard:", err);
+        // Fallback - show the text in an alert
+        alert("Copy this to share your results:\n\n" + shareText);
+      });
   }
 
   /* =================================
