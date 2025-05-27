@@ -103,5 +103,41 @@
     <!-- Load the JavaScript that makes the game interactive -->
     <!-- Load the game manager first, then the main game script -->
     <script src="script.js"></script>
+    <!-- 
+    =================================
+    HOW TO PLAY MODAL DIALOG
+    Windows 95 style modal that explains the game
+    ================================= 
+    -->
+    <div id="help-modal" class="modal-overlay">
+      <div class="modal-window">
+        <!-- Windows 95 Title Bar -->
+        <div class="modal-title-bar">
+          <div class="modal-title-text">How to Play HansBard</div>
+          <div class="modal-title-controls">
+            <button class="modal-close-btn" id="modal-close">×</button>
+          </div>
+        </div>
+        
+        <!-- Modal Body Content -->
+        <div class="modal-body">
+          <div class="modal-section">
+            <h3>What is Hansard?</h3>
+            <p>Hansard is the official record of everything said in UK Parliament since 1803. Every speech, debate, and question is transcribed and published, creating a fascinating database of political language.</p>
+          </div>
+          
+          <div class="modal-section">
+            <h3>How to Play</h3>
+            <p>Compare word frequencies across 5 rounds. For each word, guess whether it appears more or less frequently than the previous word in Parliamentary records.</p>
+          </div>
+          
+          <div class="modal-section">
+            <h3>The Theme Twist</h3>
+            <p>Each day features words with a clever double meaning! The connection is revealed when you complete all 5 rounds. Today's theme might surprise you!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
   </body>
 </html>

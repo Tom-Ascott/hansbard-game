@@ -60,6 +60,37 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   document.getElementById("current-date").textContent = dateString;
 
+  /* =================================
+     MODAL FUNCTIONALITY
+     Show/hide the help modal dialog
+     ================================= */
+
+  // Get modal elements
+  const helpButton = document.getElementById("help-button");
+  const modal = document.getElementById("help-modal");
+  const closeButton = document.getElementById("modal-close");
+
+  // Show modal when help button is clicked
+  helpButton.addEventListener("click", function () {
+    console.log("Help button clicked - showing modal");
+    modal.classList.add("show");
+  });
+
+  // Hide modal when close button is clicked
+  closeButton.addEventListener("click", function () {
+    console.log("Close button clicked - hiding modal");
+    modal.classList.remove("show");
+  });
+
+  // Hide modal when clicking outside the modal window
+  modal.addEventListener("click", function (event) {
+    // Only close if clicking the overlay, not the modal window itself
+    if (event.target === modal) {
+      console.log("Clicked outside modal - hiding modal");
+      modal.classList.remove("show");
+    }
+  });
+
   // Get button elements
   const higherBtn = document.querySelector(".choice-btn:nth-child(1)");
   const lowerBtn = document.querySelector(".choice-btn:nth-child(2)");
