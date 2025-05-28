@@ -406,6 +406,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     const updatedStreakData = StreakManager.updateStreakOnCompletion(
       currentGameTheme.gameNumber
     );
+
+    // Track game completion in Google Analytics
+    gtag("event", "game_complete", {
+      game_number: currentGameTheme.gameNumber,
+      score: score,
+      streak_length: updatedStreakData.currentStreak,
+    });
+
     const streakText = StreakManager.getStreakDisplayText(updatedStreakData);
 
     // Replace the entire game area with a completion screen
