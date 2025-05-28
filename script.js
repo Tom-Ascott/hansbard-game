@@ -284,7 +284,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     document
       .getElementById("feedback-button")
       .addEventListener("click", function () {
-        window.location = "mailto:tomwolfgangascott@gmail.com";
+        window.location =
+          "mailto:tomwolfgangascott@gmail.com?subject=HansBard Feedback&body=Hi Tom,%0A%0AI wanted to share some feedback about HansBard:%0A%0A";
       });
   }
 
