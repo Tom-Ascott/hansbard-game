@@ -258,13 +258,19 @@ document.addEventListener("DOMContentLoaded", async function () {
       "/5" +
       "</div>" +
       '<div style="background: var(--stone-white); border: 1px solid var(--border-grey); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">' +
-      '<div style="font-size: 1.4rem; font-weight: bold; color: var(--commons-green); margin-bottom: 0.5rem;">' +
-      'Theme: "' +
+      '<div style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-black);">' +
+      "The theme for today's words is..." +
+      "</div>" +
+      '<button id="reveal-theme-btn" class="choice-btn" style="margin-bottom: 1rem;">🎯 Reveal Theme</button>' +
+      '<div id="theme-explanation" style="display: none;">' +
+      '<div style="font-size: 1.4rem; font-weight: bold; color: var(--commons-green); margin-bottom: 0.5rem; margin-top: 1rem;">' +
+      '"' +
       currentGameTheme.title +
       '"' +
       "</div>" +
       '<div style="color: var(--text-black); font-style: italic;">' +
       currentGameTheme.explanation +
+      "</div>" +
       "</div>" +
       "</div>" +
       '<button id="share-results" class="choice-btn" style="margin-bottom: 1rem;">Share Results</button>' +
@@ -274,6 +280,16 @@ document.addEventListener("DOMContentLoaded", async function () {
       "</div>";
 
     gameArea.innerHTML = completionHTML;
+
+    // Add reveal theme functionality
+    document
+      .getElementById("reveal-theme-btn")
+      .addEventListener("click", function () {
+        // Hide the reveal button
+        document.getElementById("reveal-theme-btn").style.display = "none";
+        // Show the theme explanation
+        document.getElementById("theme-explanation").style.display = "block";
+      });
 
     // Add share functionality
     document
