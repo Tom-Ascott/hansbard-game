@@ -1,14 +1,5 @@
-// Game Manager - Handles loading the correct daily game
+// Game Manager - Simplified architecture using games database
 // This file determines which game to load based on the current date
-
-// List of all available games with their dates
-const GAME_SCHEDULE = [
-  { date: "2025-05-26", file: "game-001.js", gameVar: "GAME_001" },
-  { date: "2025-05-28", file: "game-002.js", gameVar: "GAME_002" },
-
-  // Add more games here as you create them
-  // { date: "2025-05-28", file: "game-003.js", gameVar: "GAME_003" },
-];
 
 // Function to get today's date in YYYY-MM-DD format
 function getTodayDate() {
@@ -21,7 +12,8 @@ function getTodayDate() {
 
 // Function to get the game for a specific date
 function getGameForDate(dateString) {
-  const game = GAME_SCHEDULE.find((g) => g.date === dateString);
+  // Find game by exact date match
+  const game = window.GAMES_DATABASE.find((g) => g.date === dateString);
 
   if (game) {
     return game;
@@ -30,8 +22,8 @@ function getGameForDate(dateString) {
   // If no game found for today, cycle through available games
   // This ensures there's always a game to play
   const daysSinceStart = getDaysSince("2025-05-26");
-  const gameIndex = daysSinceStart % GAME_SCHEDULE.length;
-  return GAME_SCHEDULE[gameIndex];
+  const gameIndex = daysSinceStart % window.GAMES_DATABASE.length;
+  return window.GAMES_DATABASE[gameIndex];
 }
 
 // Helper function to calculate days between dates
@@ -46,32 +38,37 @@ function getDaysSince(startDate) {
 // Main function to load today's game
 async function loadTodaysGame() {
   const todayDate = getTodayDate();
-  const gameInfo = getGameForDate(todayDate);
 
-  console.log(`Loading game for ${todayDate}: ${gameInfo.file}`);
+  // Check if games database is loaded
+  if (!window.GAMES_DATABASE) {
+    throw new Error(
+      "Games database not loaded. Make sure games-database.js is included."
+    );
+  }
 
-  // Dynamically load the game script
-  const script = document.createElement("script");
-  script.src = `games/${gameInfo.file}`;
+  const gameData = getGameForDate(todayDate);
 
-  return new Promise((resolve, reject) => {
-    script.onload = () => {
-      // Access the game data from the global variable
-      const gameData = window[gameInfo.gameVar];
-      if (gameData) {
-        console.log(`Successfully loaded: ${gameData.title}`);
-        resolve(gameData);
-      } else {
-        reject(new Error(`Game data not found: ${gameInfo.gameVar}`));
-      }
-    };
+  console.log(
+    `Loading game for ${todayDate}: ${gameData.title} (#${gameData.gameNumber})`
+  );
 
-    script.onerror = () => {
-      reject(new Error(`Failed to load game file: ${gameInfo.file}`));
-    };
+  return gameData;
+}
 
-    document.head.appendChild(script);
-  });
+// Function to get all games (useful for archive feature)
+function getAllGames() {
+  if (!window.GAMES_DATABASE) {
+    throw new Error("Games database not loaded.");
+  }
+  return window.GAMES_DATABASE;
+}
+
+// Function to get game by number (useful for archive feature)
+function getGameByNumber(gameNumber) {
+  if (!window.GAMES_DATABASE) {
+    throw new Error("Games database not loaded.");
+  }
+  return window.GAMES_DATABASE.find((g) => g.gameNumber === gameNumber);
 }
 
 // Export for use in main game script
@@ -79,4 +76,6 @@ window.GameManager = {
   loadTodaysGame,
   getTodayDate,
   getGameForDate,
+  getAllGames, // New: for archive feature
+  getGameByNumber, // New: for archive feature
 };
