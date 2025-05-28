@@ -16,6 +16,161 @@ let score = 0;
 let gameComplete = false;
 let resultsPattern = []; // Track correct/incorrect pattern for sharing
 
+/* =================================
+   DAILY STREAK SYSTEM
+   Track consecutive days of play to encourage daily habits
+   ================================= */
+
+// Streak management functions
+const StreakManager = {
+  // Get current streak data from localStorage
+  getStreakData() {
+    const defaultData = {
+      currentStreak: 0,
+      longestStreak: 0,
+      lastPlayedDate: null,
+      gamesCompleted: [], // Array of completed game numbers
+    };
+
+    const storedData = localStorage.getItem("hansbard-streak");
+    if (!storedData) {
+      return defaultData;
+    }
+
+    try {
+      return { ...defaultData, ...JSON.parse(storedData) };
+    } catch (error) {
+      console.warn("Failed to parse streak data, resetting:", error);
+      return defaultData;
+    }
+  },
+
+  // Save streak data to localStorage
+  saveStreakData(streakData) {
+    try {
+      localStorage.setItem("hansbard-streak", JSON.stringify(streakData));
+    } catch (error) {
+      console.error("Failed to save streak data:", error);
+    }
+  },
+
+  // Get today's date as YYYY-MM-DD string
+  getTodayString() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  },
+
+  // Get yesterday's date as YYYY-MM-DD string
+  getYesterdayString() {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const year = yesterday.getFullYear();
+    const month = String(yesterday.getMonth() + 1).padStart(2, "0");
+    const day = String(yesterday.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  },
+
+  // Check and update streak when game loads
+  checkStreak() {
+    const streakData = this.getStreakData();
+    const today = this.getTodayString();
+    const yesterday = this.getYesterdayString();
+
+    // If never played before, no action needed
+    if (!streakData.lastPlayedDate) {
+      console.log("New player - no streak to check");
+      return streakData;
+    }
+
+    // If last played today, streak continues (no change)
+    if (streakData.lastPlayedDate === today) {
+      console.log(`Streak continues: ${streakData.currentStreak} days`);
+      return streakData;
+    }
+
+    // If last played yesterday, streak can continue when game completed
+    if (streakData.lastPlayedDate === yesterday) {
+      console.log(`Streak ready to continue: ${streakData.currentStreak} days`);
+      return streakData;
+    }
+
+    // If last played more than 1 day ago, streak is broken
+    if (streakData.currentStreak > 0) {
+      console.log(
+        `Streak broken! Was ${streakData.currentStreak} days, now reset to 0`
+      );
+      streakData.currentStreak = 0;
+      this.saveStreakData(streakData);
+    }
+
+    return streakData;
+  },
+
+  // Update streak when game is completed
+  updateStreakOnCompletion(gameNumber) {
+    const streakData = this.getStreakData();
+    const today = this.getTodayString();
+    const yesterday = this.getYesterdayString();
+
+    // Add this game to completed games list (avoid duplicates)
+    if (!streakData.gamesCompleted.includes(gameNumber)) {
+      streakData.gamesCompleted.push(gameNumber);
+    }
+
+    // If already played today, don't update streak
+    if (streakData.lastPlayedDate === today) {
+      console.log("Already played today - streak unchanged");
+      this.saveStreakData(streakData);
+      return streakData;
+    }
+
+    // If last played yesterday (or never), increment streak
+    if (!streakData.lastPlayedDate || streakData.lastPlayedDate === yesterday) {
+      streakData.currentStreak += 1;
+      streakData.lastPlayedDate = today;
+
+      // Update longest streak if needed
+      if (streakData.currentStreak > streakData.longestStreak) {
+        streakData.longestStreak = streakData.currentStreak;
+      }
+
+      console.log(`Streak updated: ${streakData.currentStreak} days`);
+    } else {
+      // Gap in playing - start new streak
+      streakData.currentStreak = 1;
+      streakData.lastPlayedDate = today;
+      console.log("Started new streak: 1 day");
+    }
+
+    this.saveStreakData(streakData);
+    return streakData;
+  },
+
+  // Get streak display text for UI
+  getStreakDisplayText(streakData) {
+    if (streakData.currentStreak === 0) {
+      return "Start your streak today!";
+    } else if (streakData.currentStreak === 1) {
+      return "🔥 1 Day Streak!";
+    } else {
+      return `🔥 ${streakData.currentStreak} Day Streak!`;
+    }
+  },
+
+  // Check if user has completed today's game
+  hasCompletedToday(gameNumber) {
+    const streakData = this.getStreakData();
+    const today = this.getTodayString();
+    return (
+      streakData.lastPlayedDate === today &&
+      streakData.gamesCompleted.includes(gameNumber)
+    );
+  },
+};
+
 // Wait for page to load before adding event listeners
 document.addEventListener("DOMContentLoaded", async function () {
   console.log("HansBard game loaded successfully");
@@ -25,6 +180,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     console.log("Loading today's game...");
     currentGameTheme = await GameManager.loadTodaysGame();
     console.log("Game loaded:", currentGameTheme.title);
+    // Check streak status when game loads
+    StreakManager.checkStreak();
 
     // Initialize the first round display
     initializeGameDisplay();
@@ -245,6 +402,12 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   function showGameComplete() {
+    // Update streak when game is completed
+    const updatedStreakData = StreakManager.updateStreakOnCompletion(
+      currentGameTheme.gameNumber
+    );
+    const streakText = StreakManager.getStreakDisplayText(updatedStreakData);
+
     // Replace the entire game area with a completion screen
     const gameArea = document.querySelector(".game-area");
 
@@ -252,11 +415,23 @@ document.addEventListener("DOMContentLoaded", async function () {
     const completionHTML =
       '<div style="text-align: center; padding: 2rem;">' +
       '<h2 style="color: var(--commons-green); margin-bottom: 1rem; font-size: 2rem;">Game Complete!</h2>' +
-      '<div style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-black);">' +
+      '<div style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-black);">' +
       "Score: " +
       score +
       "/5" +
       "</div>" +
+      // Add streak display
+      '<div style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--commons-green); font-weight: bold;">' +
+      streakText +
+      "</div>" +
+      // Show longest streak if it's impressive (3+ days)
+      (updatedStreakData.longestStreak >= 3
+        ? '<div style="font-size: 1rem; margin-bottom: 1.5rem; color: var(--text-black); opacity: 0.7;">' +
+          "Longest streak: " +
+          updatedStreakData.longestStreak +
+          " days" +
+          "</div>"
+        : "") +
       '<div style="background: var(--stone-white); border: 1px solid var(--border-grey); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;">' +
       '<div style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-black);">' +
       "The theme for today's words is..." +
