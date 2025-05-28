@@ -527,7 +527,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       .map((isCorrect) => (isCorrect ? "✅" : "❌"))
       .join("");
 
-    const shareText = `HansBard #1 ${score}/5 🏛️
+    const shareText = `HansBard #${currentGameTheme.gameNumber} ${score}/5 🏛️
 ${emojiPattern}
 
 Daily Parliamentary Word Game
