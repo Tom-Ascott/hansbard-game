@@ -137,6 +137,14 @@ const StreakManager = {
         streakData.longestStreak = streakData.currentStreak;
       }
 
+      // Track streak milestones in Google Analytics
+      if ([3, 7, 14, 30, 50, 100].includes(streakData.currentStreak)) {
+        gtag("event", "streak_milestone", {
+          streak_length: streakData.currentStreak,
+          milestone_type: streakData.currentStreak + "_day_streak",
+        });
+      }
+
       console.log(`Streak updated: ${streakData.currentStreak} days`);
     } else {
       // Gap in playing - start new streak
@@ -308,6 +316,14 @@ document.addEventListener("DOMContentLoaded", async function () {
   function handleGuess(choice) {
     // Get current round data
     const currentRoundData = currentGameTheme.rounds[currentRound];
+
+    // Track round attempt in Google Analytics
+    gtag("event", "round_attempt", {
+      game_number: currentGameTheme.gameNumber,
+      round_number: currentRound + 1,
+      word_guessed: currentRoundData.unknown.word,
+    });
+
     const correctAnswer = currentRoundData.answer;
     const isCorrect = choice === correctAnswer;
 
@@ -468,6 +484,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     document
       .getElementById("reveal-theme-btn")
       .addEventListener("click", function () {
+        // Track theme reveal in Google Analytics
+        gtag("event", "theme_reveal", {
+          game_number: currentGameTheme.gameNumber,
+          user_score: score,
+        });
         // Hide the reveal button
         document.getElementById("reveal-theme-btn").style.display = "none";
         // Show the theme explanation
