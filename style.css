@@ -195,6 +195,58 @@ main {
   box-shadow: 0 0 8px rgba(178, 34, 34, 0.4);
 }
 
+/* =================================
+   MOBILE RESPONSIVE STYLES
+   Optimized for phones and small tablets
+   ================================= */
+
+@media (max-width: 768px) {
+  /* Make progress boxes smaller with less gap on mobile */
+  .progress-tracker {
+    gap: 0.5rem; /* Smaller gap between boxes */
+  }
+
+  .round-box {
+    width: 40px; /* Smaller boxes */
+    height: 40px;
+    font-size: 0.9rem; /* Slightly smaller text */
+  }
+
+  /* Stack word cards vertically on mobile */
+  .word-chain {
+    flex-direction: column; /* Stack vertically instead of horizontal */
+    gap: 1rem; /* Smaller gap between elements */
+  }
+
+  /* Hide the arrow on mobile - we don't need it when stacked */
+  .arrow {
+    display: none;
+  }
+
+  /* Make word cards full width on mobile */
+  .word-card {
+    min-width: 80%; /* Take up most of the screen width */
+    max-width: 280px; /* But not too wide */
+  }
+
+  /* Make buttons more mobile-friendly */
+  .choice-buttons {
+    gap: 1rem; /* Less gap between buttons */
+  }
+
+  .choice-btn {
+    padding: 12px 25px; /* Slightly smaller padding on mobile */
+    min-width: 120px; /* Slightly narrower */
+    font-size: 14px; /* Slightly smaller text */
+  }
+
+  /* Make question text slightly smaller on mobile */
+  .question {
+    font-size: 1.1rem;
+    padding: 0 1rem; /* Add some padding so text doesn't touch edges */
+  }
+}
+
 .game-area {
   background: #c0c0c0;
   border: 2px solid;
