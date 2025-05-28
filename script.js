@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     document
       .getElementById("feedback-button")
       .addEventListener("click", function () {
-        window.location = "mailto:test@example.com";
+        window.location = "mailto:tomwolfgangascott@gmail.com";
       });
   }
 
