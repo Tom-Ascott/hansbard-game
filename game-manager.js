@@ -71,6 +71,13 @@ function getGameByNumber(gameNumber) {
   return window.GAMES_DATABASE.find((g) => g.gameNumber === gameNumber);
 }
 
+// Function to check if a date is weekend (Saturday or Sunday)
+function isWeekend(dateString) {
+  const date = new Date(dateString);
+  const dayOfWeek = date.getDay(); // 0 = Sunday, 6 = Saturday
+  return dayOfWeek === 0 || dayOfWeek === 6;
+}
+
 // Export for use in main game script
 window.GameManager = {
   loadTodaysGame,
@@ -78,4 +85,5 @@ window.GameManager = {
   getGameForDate,
   getAllGames, // New: for archive feature
   getGameByNumber, // New: for archive feature
+  isWeekend,
 };

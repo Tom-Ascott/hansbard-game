@@ -497,3 +497,50 @@ help button styling
 .modal-overlay.show {
   display: block;
 }
+
+/* =================================
+   WEEKEND EDITION STYLING
+   Special colors and styling for weekend games
+   ================================= */
+
+/* Change header to warm oak brown on weekends */
+.weekend-edition header {
+  border-bottom-color: var(--oak-brown);
+}
+
+/* Change main title to oak brown */
+.weekend-edition h1 {
+  color: var(--oak-brown);
+}
+
+/* Change word text from green to oak brown */
+.weekend-edition .word-text {
+  color: var(--oak-brown);
+}
+
+/* Change arrow to oak brown */
+.weekend-edition .arrow {
+  color: var(--oak-brown);
+}
+
+/* Change current round box border to oak brown */
+.weekend-edition .round-box.current {
+  border-color: var(--oak-brown);
+  color: var(--oak-brown);
+  box-shadow: 0 0 10px rgba(139, 69, 19, 0.3); /* Brown glow */
+}
+
+/* Update the weekend badge styling */
+.weekend-badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 3px 8px; /* Slightly more padding */
+  background: var(--oak-brown);
+  color: var(--stone-white);
+  font-size: 0.65rem; /* Tiny bit smaller */
+  font-weight: bold;
+  font-family: "MS Sans Serif", sans-serif;
+  border: 1px solid;
+  border-color: #dfdfdf #808080 #808080 #dfdfdf;
+  letter-spacing: 0.3px; /* Tighter spacing */
+}

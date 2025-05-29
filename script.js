@@ -191,6 +191,20 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Check streak status when game loads
     StreakManager.checkStreak();
 
+    // Check if today's game is on a weekend
+    const isWeekendGame = GameManager.isWeekend(currentGameTheme.date);
+    console.log("Game date:", currentGameTheme.date);
+
+    // Add weekend class to body if it's a weekend game
+    if (isWeekendGame) {
+      document.body.classList.add("weekend-edition");
+      console.log("Added weekend-edition class to body");
+
+      // Show the weekend badge
+      document.getElementById("weekend-badge").style.display = "inline";
+      console.log("Showing weekend badge");
+    }
+
     // Initialize the first round display
     initializeGameDisplay();
   } catch (error) {
