@@ -247,6 +247,12 @@ document.addEventListener("DOMContentLoaded", async function () {
   helpButton.addEventListener("click", function () {
     console.log("Help button clicked - showing modal");
     modal.classList.add("show");
+
+    // Track help modal views
+    gtag("event", "help_modal_viewed", {
+      game_number: currentGameTheme.gameNumber,
+      first_time_visitor: !localStorage.getItem("hansbard-visited"),
+    });
   });
 
   // Hide modal when close button is clicked
@@ -537,6 +543,13 @@ hansbard.com`;
     navigator.clipboard
       .writeText(shareText)
       .then(() => {
+        // Track share button clicks
+        gtag("event", "results_shared", {
+          game_number: currentGameTheme.gameNumber,
+          score: score,
+          streak_length: StreakManager.getStreakData().currentStreak,
+        });
+
         // Show success feedback
         const shareButton = document.getElementById("share-results");
         const originalText = shareButton.textContent;

@@ -110,6 +110,78 @@ const GAMES_DATABASE = [
     ],
   },
 
+  // Game #4 - Running for Office
+  {
+    gameNumber: 4,
+    date: "2025-05-30",
+    title: "Running for Office",
+    explanation:
+      "Today's theme connects political campaigns with athletic running! Each word relates to both electoral races and physical running.",
+    rounds: [
+      {
+        known: { word: "Field", count: 138988 },
+        unknown: { word: "Trail", count: 4015 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Trail", count: 4015 },
+        unknown: { word: "Race", count: 40474 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Race", count: 40474 },
+        unknown: { word: "Ground", count: 208330 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Ground", count: 208330 },
+        unknown: { word: "Pace", count: 27722 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Pace", count: 27722 },
+        unknown: { word: "Distance", count: 38919 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #5 - Party Lines
+  {
+    gameNumber: 5,
+    date: "2025-05-31",
+    title: "Party Lines",
+    explanation:
+      "Today's theme bridges political parties with telephone communications! Each word works in both Westminster politics and phone conversations.",
+    rounds: [
+      {
+        known: { word: "Ring", count: 20828 },
+        unknown: { word: "Block", count: 31392 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Block", count: 31392 },
+        unknown: { word: "Connection", count: 176106 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Connection", count: 176106 },
+        unknown: { word: "Hold", count: 176733 },
+        answer: "higher", // Very close! Tricky
+      },
+      {
+        known: { word: "Hold", count: 176733 },
+        unknown: { word: "Group", count: 232548 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Group", count: 232548 },
+        unknown: { word: "Line", count: 528179 },
+        answer: "higher",
+      },
+    ],
+  },
+
   // TO ADD MORE GAMES:
   // Just copy this template and fill in the details:
   /*
