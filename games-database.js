@@ -146,10 +146,82 @@ const GAMES_DATABASE = [
     ],
   },
 
-  // Game #5 - Party Lines
+  // Game #5 - Black Rod's Ceremony (Weekend Edition)
   {
     gameNumber: 5,
     date: "2025-05-31",
+    title: "Black Rod's Ceremony",
+    explanation:
+      "Today's theme explores the ancient ceremonies and officers of Parliament! From the Gentleman Usher of the Black Rod to the parliamentary Chaplain, each word represents a formal role or ceremonial position in Westminster's grand traditions.",
+    rounds: [
+      {
+        known: { word: "Chaplain", count: 2814 },
+        unknown: { word: "Mace", count: 1015 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Mace", count: 1015 },
+        unknown: { word: "Yeoman", count: 961 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Yeoman", count: 961 },
+        unknown: { word: "Usher", count: 1820 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Usher", count: 1820 },
+        unknown: { word: "Serjeant", count: 4746 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Serjeant", count: 4746 },
+        unknown: { word: "Gentleman", count: 1406276 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #6 - The Bard's Barbs (Weekend Edition)
+  {
+    gameNumber: 6,
+    date: "2025-06-01",
+    title: "The Bard's Barbs",
+    explanation:
+      "Today's theme features insults coined or popularized by Shakespeare himself! These cutting words from the Bard's pen have found their way into parliamentary debates, proving that even 400 years later, nobody hurls a literary insult quite like William Shakespeare.",
+    rounds: [
+      {
+        known: { word: "Wretch", count: 318 },
+        unknown: { word: "Dastard", count: 10 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Dastard", count: 10 },
+        unknown: { word: "Recreant", count: 72 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Recreant", count: 72 },
+        unknown: { word: "Knave", count: 223 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Knave", count: 223 },
+        unknown: { word: "Scoundrel", count: 374 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Scoundrel", count: 374 },
+        unknown: { word: "Villain", count: 1098 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #7 - Party Lines
+  {
+    gameNumber: 7,
+    date: "2025-06-02",
     title: "Party Lines",
     explanation:
       "Today's theme bridges political parties with telephone communications! Each word works in both Westminster politics and phone conversations.",
@@ -186,8 +258,8 @@ const GAMES_DATABASE = [
   // Just copy this template and fill in the details:
   /*
   {
-    gameNumber: 4,
-    date: "2025-05-30",
+    gameNumber: 8,
+    date: "2025-06-03",
     title: "[Your Theme Title]",
     explanation: "[Your theme explanation]",
     rounds: [
