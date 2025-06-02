@@ -254,6 +254,222 @@ const GAMES_DATABASE = [
     ],
   },
 
+  // Game #8 - Spanish Imports
+  {
+    gameNumber: 8,
+    date: "2025-06-03",
+    title: "Spanish Imports",
+    explanation:
+      "Today's words showcase Spanish vocabulary that has enriched English! From geographical features to architectural spaces and cultural traditions, these imports from España appear in parliamentary debates on everything from urban planning to tourism policy.",
+    rounds: [
+      {
+        known: { word: "Vista", count: 1007 },
+        unknown: { word: "Plaza", count: 279 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Plaza", count: 279 },
+        unknown: { word: "Fiesta", count: 108 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Fiesta", count: 108 },
+        unknown: { word: "Patio", count: 65 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Patio", count: 65 },
+        unknown: { word: "Siesta", count: 17 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Siesta", count: 17 },
+        unknown: { word: "Sierra", count: 5045 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #9 - Court of Appeal
+  {
+    gameNumber: 9,
+    date: "2025-06-04",
+    title: "Court of Appeal",
+    explanation:
+      "Today's theme connects the legal system with sports courts! Each word works perfectly for both judicial proceedings and competitive games played on courts.",
+    rounds: [
+      {
+        known: { word: "Set", count: 547642 },
+        unknown: { word: "Court", count: 284052 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Court", count: 284052 },
+        unknown: { word: "Appeal", count: 173819 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Appeal", count: 173819 },
+        unknown: { word: "Serve", count: 125455 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Serve", count: 125455 },
+        unknown: { word: "Game", count: 34573 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Game", count: 34573 },
+        unknown: { word: "Match", count: 28340 },
+        answer: "lower",
+      },
+    ],
+  },
+
+  // Game #10 - Banking Committee
+  {
+    gameNumber: 10,
+    date: "2025-06-05",
+    title: "Banking Committee",
+    explanation:
+      "Today's theme flows between parliamentary banking policy and river systems! Each word works perfectly for both financial institutions and waterways that MPs frequently discuss.",
+    rounds: [
+      {
+        known: { word: "Current", count: 228637 },
+        unknown: { word: "Bank", count: 103118 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Bank", count: 103118 },
+        unknown: { word: "Channel", count: 42622 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Channel", count: 42622 },
+        unknown: { word: "Flow", count: 44414 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Flow", count: 44414 },
+        unknown: { word: "Stream", count: 14169 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Stream", count: 14169 },
+        unknown: { word: "Deposit", count: 14502 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #11 - House Arrest
+  {
+    gameNumber: 11,
+    date: "2025-06-06",
+    title: "House Arrest",
+    explanation:
+      "Today's theme connects Parliamentary procedure with legal detention! Each word works perfectly for both the legislative process and the justice system that MPs constantly debate.",
+    rounds: [
+      {
+        known: { word: "Brief", count: 91948 },
+        unknown: { word: "Charge", count: 219468 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Charge", count: 219468 },
+        unknown: { word: "Arrest", count: 25376 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Arrest", count: 25376 },
+        unknown: { word: "Case", count: 1085461 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Case", count: 1085461 },
+        unknown: { word: "House", count: 2162126 },
+        answer: "higher",
+      },
+      {
+        known: { word: "House", count: 2162126 },
+        unknown: { word: "Order", count: 1133105 },
+        answer: "lower",
+      },
+    ],
+  },
+
+  // Game #12 - Parliamentary Circus (Weekend Edition)
+  {
+    gameNumber: 12,
+    date: "2025-06-07",
+    title: "Parliamentary Circus",
+    explanation:
+      "Today's theme explores the theatrical spectacle of politics! From MPs calling proceedings a 'circus' to debates about actual entertainment industry regulations, these words capture Parliament's most colorful moments.",
+    rounds: [
+      {
+        known: { word: "Clown", count: 1826 },
+        unknown: { word: "Monkey", count: 823 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Monkey", count: 823 },
+        unknown: { word: "Juggle", count: 1019 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Juggle", count: 1019 },
+        unknown: { word: "Circus", count: 2356 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Circus", count: 2356 },
+        unknown: { word: "Performance", count: 74134 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Performance", count: 74134 },
+        unknown: { word: "Show", count: 260774 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #13 - Parliamentary Pub (Weekend Edition)
+  {
+    gameNumber: 13,
+    date: "2025-06-08",
+    title: "Parliamentary Pub",
+    explanation:
+      "Today's theme raises a glass to British drinking culture in politics! From licensing laws to industry debates, plus the occasional MP accused of being 'drunk on power,' these words flow through parliamentary history.",
+    rounds: [
+      {
+        known: { word: "Wine", count: 9490 },
+        unknown: { word: "Pub", count: 8396 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Pub", count: 8396 },
+        unknown: { word: "Whisky", count: 7584 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Whisky", count: 7584 },
+        unknown: { word: "Drunk", count: 5859 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Drunk", count: 5859 },
+        unknown: { word: "Sober", count: 4656 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Sober", count: 4656 },
+        unknown: { word: "Beer", count: 19237 },
+        answer: "higher",
+      },
+    ],
+  },
+
   // TO ADD MORE GAMES:
   // Just copy this template and fill in the details:
   /*
