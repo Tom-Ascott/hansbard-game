@@ -470,6 +470,258 @@ const GAMES_DATABASE = [
     ],
   },
 
+  // Game #14 - Parliamentary Yoga
+  {
+    gameNumber: 14,
+    date: "2025-06-09",
+    title: "Parliamentary Yoga",
+    explanation:
+      "Today's theme finds inner peace through political positions! These ancient yoga poses have quietly influenced parliamentary debates for centuries. From warrior-like politicians to finding balance in the mountain of legislation, MPs have unknowingly channeled yoga wisdom.",
+    rounds: [
+      {
+        known: { word: "Mountain", count: 6927 },
+        unknown: { word: "Cat", count: 6715 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Cat", count: 6715 },
+        unknown: { word: "Cow", count: 5595 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Cow", count: 5595 },
+        unknown: { word: "Warrior", count: 1403 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Warrior", count: 1403 },
+        unknown: { word: "Lotus", count: 218 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Lotus", count: 218 },
+        unknown: { word: "Child", count: 146890 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #15 - School Report
+  {
+    gameNumber: 15,
+    date: "2025-06-10",
+    title: "School Report",
+    explanation:
+      "Today's theme earns top marks by connecting education policy with academic achievement! Each word works perfectly for both government reports on schools and the report cards students receive, proving Parliament has been in session since 1803.",
+    rounds: [
+      {
+        known: { word: "Subject", count: 710283 },
+        unknown: { word: "Mark", count: 67310 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Mark", count: 67310 },
+        unknown: { word: "Term", count: 262268 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Term", count: 262268 },
+        unknown: { word: "Grade", count: 15447 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Grade", count: 15447 },
+        unknown: { word: "Report", count: 818889 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Report", count: 818889 },
+        unknown: { word: "Class", count: 2518197 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #16 - Parliamentary Pirates
+  {
+    gameNumber: 16,
+    date: "2025-06-11",
+    title: "Parliamentary Pirates",
+    explanation:
+      "Today's theme sets sail for adventure on the high seas of politics! These swashbuckling pirate classics have somehow found their way into parliamentary debates. From parrots in pet policy to skulls in medical discussions, MPs have been channeling their inner Captain Hook for centuries!",
+    rounds: [
+      {
+        known: { word: "Rum", count: 1666 },
+        unknown: { word: "Parrot", count: 1021 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Parrot", count: 1021 },
+        unknown: { word: "Skull", count: 660 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Skull", count: 660 },
+        unknown: { word: "Treasure", count: 4497 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Treasure", count: 4497 },
+        unknown: { word: "Chest", count: 4238 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Chest", count: 4238 },
+        unknown: { word: "Hook", count: 5149 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #17 - Parliamentary Solar System
+  {
+    gameNumber: 17,
+    date: "2025-06-12",
+    title: "Parliamentary Solar System",
+    explanation:
+      "Today's theme reaches for the stars! These planets from our solar system have orbited through parliamentary debates via space exploration policy, classical references to Roman gods, and the occasional astronomical metaphor. From Mars missions to the awkward pronunciation of distant worlds!",
+    rounds: [
+      {
+        known: { word: "Venus", count: 231 },
+        unknown: { word: "Saturn", count: 100 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Saturn", count: 100 },
+        unknown: { word: "Jupiter", count: 245 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Jupiter", count: 245 },
+        unknown: { word: "Mars", count: 1068 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Mars", count: 1068 },
+        unknown: { word: "Pluto", count: 74 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Pluto", count: 74 },
+        unknown: { word: "Uranus", count: 7 },
+        answer: "lower",
+      },
+    ],
+  },
+
+  // Game #19 - Parliamentary Tarot (Weekend Edition)
+  {
+    gameNumber: 19,
+    date: "2025-06-14",
+    title: "Parliamentary Tarot",
+    explanation:
+      "Today's theme channels the mystical arts! These Major Arcana tarot cards have guided parliamentary destiny for over 200 years. From debates about justice to political fools, MPs have unknowingly invoked ancient divination wisdom in their speeches.",
+    rounds: [
+      {
+        known: { word: "Tower", count: 14700 },
+        unknown: { word: "Temperance", count: 4774 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Temperance", count: 4774 },
+        unknown: { word: "Fool", count: 4339 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Fool", count: 4339 },
+        unknown: { word: "Judgement", count: 1199 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Judgement", count: 1199 },
+        unknown: { word: "Strength", count: 82521 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Strength", count: 82521 },
+        unknown: { word: "Justice", count: 229295 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #18 - Parliamentary Monsters (Weekend Edition)
+  {
+    gameNumber: 18,
+    date: "2025-06-13",
+    title: "Parliamentary Monsters",
+    explanation:
+      "Today's theme unleashes the creatures of the night on Friday the 13th! These classic monsters have haunted parliamentary debates through horror film regulations, Halloween policy, folklore discussions, and the occasional MP comparing opponents to supernatural beings. Some monsters are more popular in Parliament than others!",
+    rounds: [
+      {
+        known: { word: "Demon", count: 443 },
+        unknown: { word: "Vampire", count: 164 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Vampire", count: 164 },
+        unknown: { word: "Werewolf", count: 6 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Werewolf", count: 6 },
+        unknown: { word: "Zombie", count: 566 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Zombie", count: 566 },
+        unknown: { word: "Ghost", count: 2357 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Ghost", count: 2357 },
+        unknown: { word: "Monster", count: 2554 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #20 - Parliamentary Anatomy (Weekend Edition)
+  {
+    gameNumber: 20,
+    date: "2025-06-15",
+    title: "Parliamentary Anatomy",
+    explanation:
+      "Today's theme gets under the skin of medical policy! These proper anatomical bone names have appeared in parliamentary debates through NHS funding discussions, medical education curricula, and injury statistics. From the humble scapula to a surprising skeletal superstar!",
+    rounds: [
+      {
+        known: { word: "Femur", count: 73 },
+        unknown: { word: "Tibia", count: 11 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Tibia", count: 11 },
+        unknown: { word: "Clavicle", count: 5 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Clavicle", count: 5 },
+        unknown: { word: "Scapula", count: 4 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Scapula", count: 4 },
+        unknown: { word: "Humerus", count: 5 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Humerus", count: 5 },
+        unknown: { word: "Radius", count: 2967 },
+        answer: "higher",
+      },
+    ],
+  },
+
   // TO ADD MORE GAMES:
   // Just copy this template and fill in the details:
   /*
