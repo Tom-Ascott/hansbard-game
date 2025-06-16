@@ -614,6 +614,42 @@ const GAMES_DATABASE = [
     ],
   },
 
+  // Game #18 - Parliamentary Monsters
+  {
+    gameNumber: 18,
+    date: "2025-06-13",
+    title: "Parliamentary Monsters",
+    explanation:
+      "Today's theme unleashes the creatures of the night on Friday the 13th! These classic monsters have haunted parliamentary debates through horror film regulations, Halloween policy, folklore discussions, and the occasional MP comparing opponents to supernatural beings. Some monsters are more popular in Parliament than others!",
+    rounds: [
+      {
+        known: { word: "Demon", count: 443 },
+        unknown: { word: "Vampire", count: 164 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Vampire", count: 164 },
+        unknown: { word: "Werewolf", count: 6 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Werewolf", count: 6 },
+        unknown: { word: "Zombie", count: 566 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Zombie", count: 566 },
+        unknown: { word: "Ghost", count: 2357 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Ghost", count: 2357 },
+        unknown: { word: "Monster", count: 2554 },
+        answer: "higher",
+      },
+    ],
+  },
+
   // Game #19 - Parliamentary Tarot (Weekend Edition)
   {
     gameNumber: 19,
@@ -650,46 +686,10 @@ const GAMES_DATABASE = [
     ],
   },
 
-  // Game #18 - Parliamentary Monsters (Weekend Edition)
-  {
-    gameNumber: 18,
-    date: "2025-06-13",
-    title: "Parliamentary Monsters",
-    explanation:
-      "Today's theme unleashes the creatures of the night on Friday the 13th! These classic monsters have haunted parliamentary debates through horror film regulations, Halloween policy, folklore discussions, and the occasional MP comparing opponents to supernatural beings. Some monsters are more popular in Parliament than others!",
-    rounds: [
-      {
-        known: { word: "Demon", count: 443 },
-        unknown: { word: "Vampire", count: 164 },
-        answer: "lower",
-      },
-      {
-        known: { word: "Vampire", count: 164 },
-        unknown: { word: "Werewolf", count: 6 },
-        answer: "lower",
-      },
-      {
-        known: { word: "Werewolf", count: 6 },
-        unknown: { word: "Zombie", count: 566 },
-        answer: "higher",
-      },
-      {
-        known: { word: "Zombie", count: 566 },
-        unknown: { word: "Ghost", count: 2357 },
-        answer: "higher",
-      },
-      {
-        known: { word: "Ghost", count: 2357 },
-        unknown: { word: "Monster", count: 2554 },
-        answer: "higher",
-      },
-    ],
-  },
-
   // Game #20 - Parliamentary Anatomy (Weekend Edition)
   {
     gameNumber: 20,
-    date: "2025-06-15",
+    date: "2025-06-19",
     title: "Parliamentary Anatomy",
     explanation:
       "Today's theme gets under the skin of medical policy! These proper anatomical bone names have appeared in parliamentary debates through NHS funding discussions, medical education curricula, and injury statistics. From the humble scapula to a surprising skeletal superstar!",
@@ -718,6 +718,510 @@ const GAMES_DATABASE = [
         known: { word: "Humerus", count: 5 },
         unknown: { word: "Radius", count: 2967 },
         answer: "higher",
+      },
+    ],
+  },
+
+  // Game #21 - Press Gallery
+  {
+    gameNumber: 21,
+    date: "2025-06-16",
+    title: "Press Gallery",
+    explanation:
+      "Today's theme bridges parliamentary journalism with the art world! Each word works perfectly for both the press gallery where journalists report on debates and the galleries where art is displayed.",
+    rounds: [
+      {
+        known: { word: "Gallery", count: 15858 },
+        unknown: { word: "Frame", count: 16599 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Frame", count: 16599 },
+        unknown: { word: "Exhibition", count: 13162 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Exhibition", count: 13162 },
+        unknown: { word: "Portrait", count: 1866 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Portrait", count: 1866 },
+        unknown: { word: "Sketch", count: 3241 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Sketch", count: 3241 },
+        unknown: { word: "Press", count: 227846 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #22 - Division Bell
+  {
+    gameNumber: 22,
+    date: "2025-06-17",
+    title: "Division Bell",
+    explanation:
+      "Today's theme rings true for both Parliament and churches! Each word connects the division bell that summons MPs to vote with the ancient tradition of bell ringing.",
+    rounds: [
+      {
+        known: { word: "Tower", count: 14700 },
+        unknown: { word: "Ring", count: 20828 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Ring", count: 20828 },
+        unknown: { word: "Bell", count: 21684 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Bell", count: 21684 },
+        unknown: { word: "Strike", count: 68134 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Strike", count: 68134 },
+        unknown: { word: "Chamber", count: 139113 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Chamber", count: 139113 },
+        unknown: { word: "Division", count: 196423 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #23 - Party Platform
+  {
+    gameNumber: 23,
+    date: "2025-06-18",
+    title: "Party Platform",
+    explanation:
+      "Today's theme connects political parties with train stations! Each word works perfectly for both party platforms and railway platforms, proving that politics and public transport share more than just delays and disappointment.",
+    rounds: [
+      {
+        known: { word: "Signal", count: 18553 },
+        unknown: { word: "Platform", count: 16712 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Platform", count: 16712 },
+        unknown: { word: "Ticket", count: 11935 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Ticket", count: 11935 },
+        unknown: { word: "Terminal", count: 10392 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Terminal", count: 10392 },
+        unknown: { word: "Standing", count: 233272 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Standing", count: 233272 },
+        unknown: { word: "Line", count: 528179 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #24 - Military Maneuvers
+  {
+    gameNumber: 24,
+    date: "2025-06-19",
+    title: "Military Maneuvers",
+    explanation:
+      "Today's theme connects defense policy with chess strategy! Each word works perfectly for both military discussions and the royal game, proving that Parliament has been playing chess with policy for centuries.",
+    rounds: [
+      {
+        known: { word: "Castle", count: 25672 },
+        unknown: { word: "Queen", count: 30035 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Queen", count: 30035 },
+        unknown: { word: "Knight", count: 18928 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Knight", count: 18928 },
+        unknown: { word: "Check", count: 51616 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Check", count: 51616 },
+        unknown: { word: "Bishop", count: 48715 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Bishop", count: 48715 },
+        unknown: { word: "Pawn", count: 942 },
+        answer: "lower",
+      },
+    ],
+  },
+
+  // Game #25 - Longest Sitting
+  {
+    gameNumber: 25,
+    date: "2025-06-20",
+    title: "Longest Sitting",
+    explanation:
+      "Today's the summer solstice - the longest day meets parliamentary marathons! Each word connects the astronomical longest day with Parliament's famously long sittings. From summer recesses to all-night sessions, MPs know all about endurance - whether from the sun or the Speaker!",
+    rounds: [
+      {
+        known: { word: "Equator", count: 344 },
+        unknown: { word: "Solstice", count: 98 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Solstice", count: 98 },
+        unknown: { word: "Recess", count: 41060 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Recess", count: 41060 },
+        unknown: { word: "Summer", count: 72151 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Summer", count: 72151 },
+        unknown: { word: "Session", count: 137642 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Session", count: 137642 },
+        unknown: { word: "Light", count: 186445 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #26 - Parliamentary Pairs (Weekend Edition)
+  {
+    gameNumber: 26,
+    date: "2025-06-21",
+    title: "Parliamentary Pairs",
+    explanation:
+      "Today's theme features homophones - words that sound identical but spell differently! These sound-alike pairs have created countless parliamentary pronunciation debates and Hansard transcription challenges over the centuries.",
+    rounds: [
+      {
+        known: { word: "Bear", count: 175553 },
+        unknown: { word: "Bare", count: 9796 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Bare", count: 9796 },
+        unknown: { word: "Piece", count: 73981 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Piece", count: 73981 },
+        unknown: { word: "Peace", count: 136180 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Peace", count: 136180 },
+        unknown: { word: "Dear", count: 17899 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Dear", count: 17899 },
+        unknown: { word: "Deer", count: 9190 },
+        answer: "lower",
+      },
+    ],
+  },
+
+  // Game #27 - Mirror Parliament (Weekend Edition)
+  {
+    gameNumber: 27,
+    date: "2025-06-22",
+    title: "Mirror Parliament",
+    explanation:
+      "Today's words are palindromes - they spell the same forwards and backwards! These symmetrical words reflect Parliament's love of balanced debate, with each term representing the balanced nature of democratic discourse.",
+    rounds: [
+      {
+        known: { word: "Civic", count: 8934 },
+        unknown: { word: "Madam", count: 30934 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Madam", count: 30934 },
+        unknown: { word: "Deed", count: 6102 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Deed", count: 6102 },
+        unknown: { word: "Tenet", count: 1223 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Tenet", count: 1223 },
+        unknown: { word: "Level", count: 296252 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Level", count: 296252 },
+        unknown: { word: "Refer", count: 242525 },
+        answer: "lower",
+      },
+    ],
+  },
+
+  // Game #28 - Economic Forecast
+  {
+    gameNumber: 28,
+    date: "2025-06-23",
+    title: "Economic Forecast",
+    explanation:
+      "Today's theme flows between financial policy and weather conditions! Each word works perfectly for both market reports and meteorological forecasts, proving Parliament watches both economic and atmospheric pressure.",
+    rounds: [
+      {
+        known: { word: "Storm", count: 9332 },
+        unknown: { word: "Depression", count: 17515 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Depression", count: 17515 },
+        unknown: { word: "Front", count: 189387 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Front", count: 189387 },
+        unknown: { word: "Pressure", count: 136658 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Pressure", count: 136658 },
+        unknown: { word: "Climate", count: 58281 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Climate", count: 58281 },
+        unknown: { word: "Current", count: 229130 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #29 - Digital Harvest
+  {
+    gameNumber: 29,
+    date: "2025-06-24",
+    title: "Digital Harvest",
+    explanation:
+      "Today's theme bridges farming policy with computer technology! Each word works perfectly for both agricultural discussions and digital systems, proving Parliament has been cultivating tech policy since long before the internet was invented.",
+    rounds: [
+      {
+        known: { word: "Field", count: 139073 },
+        unknown: { word: "Application", count: 170888 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Application", count: 170888 },
+        unknown: { word: "Memory", count: 33244 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Memory", count: 33244 },
+        unknown: { word: "Network", count: 50176 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Network", count: 50176 },
+        unknown: { word: "Processing", count: 14644 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Processing", count: 14644 },
+        unknown: { word: "Terminal", count: 10416 },
+        answer: "lower",
+      },
+    ],
+  },
+
+  // Game #30 - Orwellian Oracle
+  {
+    gameNumber: 30,
+    date: "2025-06-25",
+    title: "Orwellian Oracle",
+    explanation:
+      "Today marks George Orwell's birthday! These words from his dystopian masterpieces have ironically found their way into real parliamentary debates, proving that sometimes fiction predicts political reality with unsettling accuracy.",
+    rounds: [
+      {
+        known: { word: "Farm", count: 52878 },
+        unknown: { word: "Revolution", count: 27406 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Revolution", count: 27406 },
+        unknown: { word: "1984", count: 24464 },
+        answer: "lower",
+      },
+      {
+        known: { word: "1984", count: 24464 },
+        unknown: { word: "Truth", count: 98212 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Truth", count: 98212 },
+        unknown: { word: "War", count: 391118 },
+        answer: "higher",
+      },
+      {
+        known: { word: "War", count: 391118 },
+        unknown: { word: "Peace", count: 136180 },
+        answer: "lower",
+      },
+    ],
+  },
+
+  // Game #31 - Kitchen Politics
+  {
+    gameNumber: 31,
+    date: "2025-06-26",
+    title: "Kitchen Politics",
+    explanation:
+      "Today's theme serves up cooking terms that have simmered into political language! Each word works perfectly for both culinary techniques and political situations, proving that Parliament has been cooking up policies with the same vocabulary chefs use in the kitchen.",
+    rounds: [
+      {
+        known: { word: "Stir", count: 4725 },
+        unknown: { word: "Recipe", count: 5420 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Recipe", count: 5420 },
+        unknown: { word: "Heat", count: 19722 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Heat", count: 19722 },
+        unknown: { word: "Boil", count: 1672 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Boil", count: 1672 },
+        unknown: { word: "Simmer", count: 109 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Simmer", count: 109 },
+        unknown: { word: "Pressure", count: 136658 },
+        answer: "higher",
+      },
+    ],
+  },
+
+  // Game #32 - Time Management
+  {
+    gameNumber: 32,
+    date: "2025-06-27",
+    title: "Time Management",
+    explanation:
+      "Today's theme ticks through time words that work double duty in politics! Each word measures both chronological time and parliamentary procedures, proving that MPs have been managing time and timing their management for centuries.",
+    rounds: [
+      {
+        known: { word: "Term", count: 262686 },
+        unknown: { word: "Period", count: 417051 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Period", count: 417051 },
+        unknown: { word: "Hour", count: 120859 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Hour", count: 120859 },
+        unknown: { word: "Session", count: 137675 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Session", count: 137675 },
+        unknown: { word: "Second", count: 656700 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Second", count: 656700 },
+        unknown: { word: "Minute", count: 55761 },
+        answer: "lower",
+      },
+    ],
+  },
+
+  // Game #33 - Rhyme Time (Weekend Edition)
+  {
+    gameNumber: 33,
+    date: "2025-06-28",
+    title: "Rhyme Time",
+    explanation:
+      "Today's words all rhyme with each other - proving that Parliament's debates flow with poetic rhythm! These perfectly rhyming political terms show that even the most serious legislative language can have a musical quality.",
+    rounds: [
+      {
+        known: { word: "Conceal", count: 8903 },
+        unknown: { word: "Reveal", count: 14369 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Reveal", count: 14369 },
+        unknown: { word: "Ordeal", count: 3332 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Ordeal", count: 3332 },
+        unknown: { word: "Repeal", count: 37440 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Repeal", count: 37440 },
+        unknown: { word: "Deal", count: 743087 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Deal", count: 743087 },
+        unknown: { word: "Appeal", count: 173895 },
+        answer: "lower",
+      },
+    ],
+  },
+
+  // Game #34 - Double Vision (Weekend Edition)
+  {
+    gameNumber: 34,
+    date: "2025-06-29",
+    title: "Double Vision",
+    explanation:
+      "Today's words are contronyms - they mean their own opposite! These confusing words have been tripping up MPs and Hansard scribes for centuries, proving that English is Parliament's trickiest opponent.",
+    rounds: [
+      {
+        known: { word: "Oversight", count: 19058 },
+        unknown: { word: "Peer", count: 13976 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Peer", count: 13976 },
+        unknown: { word: "Resign", count: 11756 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Resign", count: 11756 },
+        unknown: { word: "Sanction", count: 44917 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Sanction", count: 44917 },
+        unknown: { word: "Table", count: 233729 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Table", count: 233729 },
+        unknown: { word: "Strike", count: 68206 },
+        answer: "lower",
       },
     ],
   },
