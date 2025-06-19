@@ -689,7 +689,7 @@ const GAMES_DATABASE = [
   // Game #20 - Parliamentary Anatomy (Weekend Edition)
   {
     gameNumber: 20,
-    date: "2025-06-19",
+    date: "2025-06-15",
     title: "Parliamentary Anatomy",
     explanation:
       "Today's theme gets under the skin of medical policy! These proper anatomical bone names have appeared in parliamentary debates through NHS funding discussions, medical education curricula, and injury statistics. From the humble scapula to a surprising skeletal superstar!",
