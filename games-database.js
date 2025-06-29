@@ -1226,6 +1226,42 @@ const GAMES_DATABASE = [
     ],
   },
 
+  // Game #35 - Building Consensus
+  {
+    gameNumber: 35,
+    date: "2025-06-30",
+    title: "Building Consensus",
+    explanation:
+      "Today's theme constructs a bridge between political coalition-building and actual construction! Each word works perfectly for both parliamentary consensus-building and the architectural world, proving that MPs have been laying foundations and building frameworks for centuries.",
+    rounds: [
+      {
+        known: { word: "Foundation", count: 60847 },
+        unknown: { word: "Blueprint", count: 3056 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Blueprint", count: 3056 },
+        unknown: { word: "Structure", count: 82348 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Structure", count: 82348 },
+        unknown: { word: "Building", count: 221158 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Building", count: 221158 },
+        unknown: { word: "Construction", count: 83701 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Construction", count: 83701 },
+        unknown: { word: "Framework", count: 84313 },
+        answer: "higher",
+      },
+    ],
+  },
+
   // TO ADD MORE GAMES:
   // Just copy this template and fill in the details:
   /*
