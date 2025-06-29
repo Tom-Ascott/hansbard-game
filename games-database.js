@@ -1262,6 +1262,42 @@ const GAMES_DATABASE = [
     ],
   },
 
+  // Game #36 - Parliamentary Fishing
+  {
+    gameNumber: 36,
+    date: "2025-07-01",
+    title: "Parliamentary Fishing",
+    explanation:
+      "Today's theme casts a line between political maneuvering and angling! Each word works perfectly for both parliamentary tactics and fishing techniques, proving that MPs have been baiting hooks and reeling in votes for centuries.",
+    rounds: [
+      {
+        known: { word: "Hook", count: 5156 },
+        unknown: { word: "Bait", count: 1566 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Bait", count: 1566 },
+        unknown: { word: "Reel", count: 632 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Reel", count: 632 },
+        unknown: { word: "Catch", count: 40408 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Catch", count: 40408 },
+        unknown: { word: "Net", count: 74025 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Net", count: 74025 },
+        unknown: { word: "Line", count: 528556 },
+        answer: "higher",
+      },
+    ],
+  },
+
   // TO ADD MORE GAMES:
   // Just copy this template and fill in the details:
   /*
