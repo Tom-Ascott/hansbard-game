@@ -1298,6 +1298,42 @@ const GAMES_DATABASE = [
     ],
   },
 
+  // Game #42 - Press Gallery
+  {
+    gameNumber: 42,
+    date: "2025-07-07",
+    title: "Press Gallery",
+    explanation:
+      "Today's theme reports from the press gallery! These major UK newspapers have been quoted, criticized, and debated in Parliament for centuries, proving that MPs have always had strong opinions about media coverage.",
+    rounds: [
+      {
+        known: { word: "Daily Mail", count: 5313 },
+        unknown: { word: "Observer", count: 10091 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Observer", count: 10091 },
+        unknown: { word: "Financial Times", count: 10217 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Financial Times", count: 10217 },
+        unknown: { word: "Telegraph", count: 20873 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Telegraph", count: 20873 },
+        unknown: { word: "Guardian", count: 22093 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Guardian", count: 22093 },
+        unknown: { word: "Independent", count: 190840 },
+        answer: "higher",
+      },
+    ],
+  },
+
   // TO ADD MORE GAMES:
   // Just copy this template and fill in the details:
   /*
