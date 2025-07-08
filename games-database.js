@@ -1334,6 +1334,42 @@ const GAMES_DATABASE = [
     ],
   },
 
+  // Game #44 - Formal Correspondence
+  {
+    gameNumber: 44,
+    date: "2025-07-09",
+    title: "Formal Correspondence",
+    explanation:
+      "Today's theme seals the deal between political letter-writing and proper etiquette! Each phrase appears in both parliamentary correspondence and the formal letters that MPs constantly reference, proving that good manners and political protocol go hand in hand.",
+    rounds: [
+      {
+        known: { word: "Sincerely", count: 37787 },
+        unknown: { word: "Dear", count: 17934 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Dear", count: 17934 },
+        unknown: { word: "Respectfully", count: 19246 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Respectfully", count: 19246 },
+        unknown: { word: "Yours", count: 4077 },
+        answer: "lower",
+      },
+      {
+        known: { word: "Yours", count: 4077 },
+        unknown: { word: "Faithfully", count: 5986 },
+        answer: "higher",
+      },
+      {
+        known: { word: "Faithfully", count: 5986 },
+        unknown: { word: "Regards", count: 127447 },
+        answer: "higher",
+      },
+    ],
+  },
+
   // TO ADD MORE GAMES:
   // Just copy this template and fill in the details:
   /*
